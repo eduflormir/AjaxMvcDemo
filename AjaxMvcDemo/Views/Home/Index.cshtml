@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<input type="text" id="txtNombre" placeholder="Nombre"/>
+<input type="number" id="txtNumPersonas" placeholder="Numero Personas Reserva"/>
+<input type="date" id="txtFecha" placeholder="Fecha Reserva"/>
+<input type="button" id="btnGuardar" value="Guardar"/>
+
+<div id="resultado"></div>
+
+@section MiJS
+{
+    <script>
+        $(function() {
+            $("#btnGuardar").click(function() {
+                var vnombre = $("#txtNombre").val();
+                var vnumPersonas = parseInt($("#txtNumPersonas").val());
+                var vfecha = $("#txtFecha").val();
+                
+                
+                if (isNaN(vnumPersonas)) vnumPersonas = 0;
+                
+
+                console.log("vnombre:" + vnombre);
+                console.log("vnumPersonas:" + vnumPersonas);
+                console.log("vfecha:" + vfecha);
+
+                $.ajax({
+                    url: "@Url.Action("ObtenerReserva")",
+                    data: { nombre: vnombre, numPersonas: vnumPersonas, fecha: vfecha },
+                    type: "POST",
+                    success: function(response) {
+                        $("#resultado").hide("slow", function() {
+                            $(this).html(response);
+                            $(this).show("slow");
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+
+

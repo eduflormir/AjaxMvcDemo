@@ -1,0 +1,44 @@
+﻿@model AjaxMvcDemo.Models.ReservaViewModel
+
+<div style="background-color: purple; color: white;width: 80%" >
+    <h4>Reserva Confirmada</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumPersonas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumPersonas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumReserva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumReserva)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>
